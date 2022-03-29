@@ -19,7 +19,7 @@ DIGIT    [0-9]
 ")"   {printf("R_PAREN ");}
 "="            {printf("EQUAL\n"); }
 {DIGIT}+       {printf("NUMBER %s\n", yytext); }
-.  {printf("ERROR, NOT RECOGNIZED SYMBOL\n");}
+.  {printf("ERROR, NOT RECOGNIZED SYMBOL\n"); exit(0);}
 %%
 	/* C functions used in lexer, runs the rules section */
 

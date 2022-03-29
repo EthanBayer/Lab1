@@ -772,7 +772,7 @@ YY_RULE_SETUP
 case 9:
 YY_RULE_SETUP
 #line 23 "calc.lex"
-{printf("ERROR, NOT RECOGNIZED SYMBOL\n");}
+{printf("ERROR, NOT RECOGNIZED SYMBOL\n"); exit(0);}
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
