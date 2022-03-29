@@ -352,8 +352,8 @@ static void yynoreturn yy_fatal_error ( const char* msg  );
 	(yy_hold_char) = *yy_cp; \
 	*yy_cp = '\0'; \
 	(yy_c_buf_p) = yy_cp;
-#define YY_NUM_RULES 10
-#define YY_END_OF_BUFFER 11
+#define YY_NUM_RULES 11
+#define YY_END_OF_BUFFER 12
 /* This struct is not used in this scanner,
    but its presence is necessary. */
 struct yy_trans_info
@@ -361,10 +361,10 @@ struct yy_trans_info
 	flex_int32_t yy_verify;
 	flex_int32_t yy_nxt;
 	};
-static const flex_int16_t yy_accept[16] =
+static const flex_int16_t yy_accept[18] =
     {   0,
-        0,    0,   11,    9,   10,    5,    6,    4,    1,    2,
-        3,    8,    7,    8,    0
+        0,    0,   12,   10,   11,    5,    6,    4,    1,    2,
+        3,    8,    7,    0,    8,    9,    0
     } ;
 
 static const YY_CHAR yy_ec[256] =
@@ -373,9 +373,9 @@ static const YY_CHAR yy_ec[256] =
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    3,
-        4,    5,    6,    1,    7,    1,    8,    9,    9,    9,
-        9,    9,    9,    9,    9,    9,    9,    1,    1,    1,
-       10,    1,    1,    1,    1,    1,    1,    1,    1,    1,
+        4,    5,    6,    1,    7,    8,    9,   10,   10,   10,
+       10,   10,   10,   10,   10,   10,   10,    1,    1,    1,
+       11,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
@@ -399,35 +399,36 @@ static const YY_CHAR yy_ec[256] =
         1,    1,    1,    1,    1
     } ;
 
-static const YY_CHAR yy_meta[11] =
-    {   0,
-        1,    1,    1,    1,    1,    1,    1,    1,    1,    1
-    } ;
-
-static const flex_int16_t yy_base[16] =
-    {   0,
-        0,    0,   13,   14,   14,   14,   14,   14,   14,   14,
-       14,    3,   14,    2,   14
-    } ;
-
-static const flex_int16_t yy_def[16] =
-    {   0,
-       15,    1,   15,   15,   15,   15,   15,   15,   15,   15,
-       15,   15,   15,   15,    0
-    } ;
-
-static const flex_int16_t yy_nxt[25] =
-    {   0,
-        4,    5,    6,    7,    8,    9,   10,   11,   12,   13,
-       14,   14,   15,    3,   15,   15,   15,   15,   15,   15,
-       15,   15,   15,   15
-    } ;
-
-static const flex_int16_t yy_chk[25] =
+static const YY_CHAR yy_meta[12] =
     {   0,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-       14,   12,    3,   15,   15,   15,   15,   15,   15,   15,
-       15,   15,   15,   15
+        1
+    } ;
+
+static const flex_int16_t yy_base[18] =
+    {   0,
+        0,    0,   16,   17,   17,   17,   17,   17,   17,   17,
+       17,    4,   17,    5,    0,    3,   17
+    } ;
+
+static const flex_int16_t yy_def[18] =
+    {   0,
+       17,    1,   17,   17,   17,   17,   17,   17,   17,   17,
+       17,   17,   17,   17,   12,   17,    0
+    } ;
+
+static const flex_int16_t yy_nxt[29] =
+    {   0,
+        4,    5,    6,    7,    8,    9,   10,    4,   11,   12,
+       13,   14,   16,   15,   16,   17,    3,   17,   17,   17,
+       17,   17,   17,   17,   17,   17,   17,   17
+    } ;
+
+static const flex_int16_t yy_chk[29] =
+    {   0,
+        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
+        1,   12,   16,   12,   14,    3,   17,   17,   17,   17,
+       17,   17,   17,   17,   17,   17,   17,   17
     } ;
 
 static yy_state_type yy_last_accepting_state;
@@ -449,10 +450,10 @@ char *yytext;
    /* cs152-calculator */
    /* write your C code here for definition of variables and including headers */
    int arr[4] = {0, 0, 0, 0};
-#line 453 "calc.c"
+#line 454 "calc.c"
 #line 10 "calc.lex"
    /* some common rules, for example DIGIT (RULES section)*/
-#line 456 "calc.c"
+#line 457 "calc.c"
 
 #define INITIAL 0
 
@@ -672,7 +673,7 @@ YY_DECL
 #line 13 "calc.lex"
 
    /* specific lexer rules in regex */
-#line 676 "calc.c"
+#line 677 "calc.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -699,13 +700,13 @@ yy_match:
 			while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 				{
 				yy_current_state = (int) yy_def[yy_current_state];
-				if ( yy_current_state >= 16 )
+				if ( yy_current_state >= 18 )
 					yy_c = yy_meta[yy_c];
 				}
 			yy_current_state = yy_nxt[yy_base[yy_current_state] + yy_c];
 			++yy_cp;
 			}
-		while ( yy_base[yy_current_state] != 14 );
+		while ( yy_base[yy_current_state] != 17 );
 
 yy_find_action:
 		yy_act = yy_accept[yy_current_state];
@@ -772,14 +773,19 @@ YY_RULE_SETUP
 case 9:
 YY_RULE_SETUP
 #line 23 "calc.lex"
-{printf("ERROR, NOT RECOGNIZED SYMBOL\n"); exit(0);}
+{printf("DECIMAL %s\n", yytext); arr[0]++; }
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
 #line 24 "calc.lex"
+{printf("ERROR, NOT RECOGNIZED SYMBOL\n"); exit(0);}
+	YY_BREAK
+case 11:
+YY_RULE_SETUP
+#line 25 "calc.lex"
 ECHO;
 	YY_BREAK
-#line 783 "calc.c"
+#line 789 "calc.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1076,7 +1082,7 @@ static int yy_get_next_buffer (void)
 		while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 			{
 			yy_current_state = (int) yy_def[yy_current_state];
-			if ( yy_current_state >= 16 )
+			if ( yy_current_state >= 18 )
 				yy_c = yy_meta[yy_c];
 			}
 		yy_current_state = yy_nxt[yy_base[yy_current_state] + yy_c];
@@ -1104,11 +1110,11 @@ static int yy_get_next_buffer (void)
 	while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 		{
 		yy_current_state = (int) yy_def[yy_current_state];
-		if ( yy_current_state >= 16 )
+		if ( yy_current_state >= 18 )
 			yy_c = yy_meta[yy_c];
 		}
 	yy_current_state = yy_nxt[yy_base[yy_current_state] + yy_c];
-	yy_is_jam = (yy_current_state == 15);
+	yy_is_jam = (yy_current_state == 17);
 
 		return yy_is_jam ? 0 : yy_current_state;
 }
@@ -1784,7 +1790,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 24 "calc.lex"
+#line 25 "calc.lex"
 
 	/* C functions used in lexer, runs the rules section */
 
