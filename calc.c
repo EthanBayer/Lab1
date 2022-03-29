@@ -448,7 +448,7 @@ char *yytext;
 #line 2 "calc.lex"
    /* cs152-calculator */
    /* write your C code here for definition of variables and including headers */
-   //int count = 2 + 3;
+   int arr[4] = {0, 0, 0, 0};
 #line 453 "calc.c"
 #line 10 "calc.lex"
    /* some common rules, for example DIGIT (RULES section)*/
@@ -732,42 +732,42 @@ do_action:	/* This label is used only to access EOF actions. */
 case 1:
 YY_RULE_SETUP
 #line 15 "calc.lex"
-{printf("PLUS");}
+{printf("PLUS"); arr[1]++;}
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
 #line 16 "calc.lex"
-{printf("MINUS");}
+{printf("MINUS"); arr[1]++;}
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
 #line 17 "calc.lex"
-{printf("DIV");}
+{printf("DIV"); arr[1]++;}
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
 #line 18 "calc.lex"
-{printf("MULT");}
+{printf("MULT"); arr[1]++;}
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
 #line 19 "calc.lex"
-{printf("L_PAREN\n");}
+{printf("L_PAREN\n"); arr[2]++;}
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
 #line 20 "calc.lex"
-{printf("R_PAREN ");}
+{printf("R_PAREN "); arr[2]++;}
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
 #line 21 "calc.lex"
-{printf("EQUAL\n"); }
+{printf("EQUAL\n"); arr[3]++;}
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
 #line 22 "calc.lex"
-{printf("NUMBER %s\n", yytext); }
+{printf("NUMBER %s\n", yytext); arr[0]++; }
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
@@ -1790,6 +1790,7 @@ void yyfree (void * ptr )
 
 int main(int argc, char ** argv)
 {
+   // To run with file: ./executable filename.txt
    if (argc >= 2)
    {
       yyin = fopen(argv[1], "r");
@@ -1803,6 +1804,10 @@ int main(int argc, char ** argv)
       yyin = stdin;
    }
    yylex();
+   printf("\nNumber of Integers: %d", arr[0]);
+   printf("\nNumber of Operators: %d", arr[1]);
+   printf("\nNumber of Parentheses: %d", arr[2]);
+   printf("\nNumber of Equal Signs: %d\n", arr[3]);
 }
 
 

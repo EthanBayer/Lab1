@@ -2,7 +2,7 @@
    
 %{   
    /* write your C code here for definition of variables and including headers */
-   //int count = 2 + 3;
+   int arr[4] = {0, 0, 0, 0};
 %}
 
 
@@ -11,20 +11,21 @@ DIGIT    [0-9]
    
 %%
    /* specific lexer rules in regex */
-"+"   {printf("PLUS");}
-"-"   {printf("MINUS");}
-"/"   {printf("DIV");}
-"*"   {printf("MULT");}
-"("   {printf("L_PAREN\n");}
-")"   {printf("R_PAREN ");}
-"="            {printf("EQUAL\n"); }
-{DIGIT}+       {printf("NUMBER %s\n", yytext); }
+"+"   {printf("PLUS"); arr[1]++;}
+"-"   {printf("MINUS"); arr[1]++;}
+"/"   {printf("DIV"); arr[1]++;}
+"*"   {printf("MULT"); arr[1]++;}
+"("   {printf("L_PAREN\n"); arr[2]++;}
+")"   {printf("R_PAREN "); arr[2]++;}
+"="            {printf("EQUAL\n"); arr[3]++;}
+{DIGIT}+       {printf("NUMBER %s\n", yytext); arr[0]++; }
 .  {printf("ERROR, NOT RECOGNIZED SYMBOL\n"); exit(0);}
 %%
 	/* C functions used in lexer, runs the rules section */
 
 int main(int argc, char ** argv)
 {
+   // To run with file: ./executable filename.txt
    if (argc >= 2)
    {
       yyin = fopen(argv[1], "r");
@@ -38,5 +39,9 @@ int main(int argc, char ** argv)
       yyin = stdin;
    }
    yylex();
+   printf("\nNumber of Integers: %d", arr[0]);
+   printf("\nNumber of Operators: %d", arr[1]);
+   printf("\nNumber of Parentheses: %d", arr[2]);
+   printf("\nNumber of Equal Signs: %d\n", arr[3]);
 }
 
